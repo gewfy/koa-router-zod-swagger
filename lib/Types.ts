@@ -1,4 +1,3 @@
-import { JsonSchema7Type } from 'zod-to-json-schema/src/parseDef';
 import { HTTP_STATUS_CODES } from './utils/Constants';
 import { AnyZodObject } from 'zod';
 import { JsonSchema7ObjectType } from 'zod-to-json-schema/src/parsers/object';
@@ -17,7 +16,7 @@ export type ParameterType = {
   explode?: boolean;
   description?: string;
   required?: boolean;
-  schema: JsonSchema7Type;
+  schema: object;
 };
 
 type RequestType = 'application/json' | 'multipart/form-data';
@@ -61,7 +60,7 @@ export type SwaggerResponseType = {
     description?: string;
     content?: {
       [key: 'application/json' | string]: {
-        schema?: JsonSchema7Type;
+        schema?: object;
       };
     };
   };
